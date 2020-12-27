@@ -1,0 +1,85 @@
+package ${package}.dao.intf;
+
+
+
+import java.util.List;
+
+import com.hsjry.lang.mybatis.dao.IBaseDao;
+import com.hsjry.lang.mybatis.pagehelper.PageInfo;
+import com.hsjry.lang.mybatis.pagehelper.PageParam;
+import ${package}.dao.model.${className}Do;
+import ${package}.dao.query.${className}Query;
+
+/**
+ * ${comments}
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
+public interface ${className}Dao extends IBaseDao<${className}Do> {
+
+    /**
+     * 分页查询${comments}
+     *
+     * @param query 条件
+     * @return PageInfo<${className}Do>
+     */
+    PageInfo<${className}Do> selectPage(${className}Query query, PageParam pageParam);
+
+    /**
+     * 根据条件查询${comments}总数
+     *
+     * @param query 条件
+     * @return int
+     */
+    int countByExample(${className}Query query);
+
+    /**
+     * 根据key查询${comments}
+     *
+     * @param key
+     * @return
+     */
+    ${className}Do selectByKey(${className}KeyDo key);
+
+    /**
+     * 根据key删除${comments}
+     *
+     * @param key
+     * @return
+     */
+    int deleteByKey(${className}KeyDo key);
+
+    /**
+     * 删除${comments}信息
+     *
+     * @param query 条件
+     * @return int
+     */
+    int deleteByExample(${className}Query query);
+
+    /**
+     * 查询${comments}信息
+     *
+     * @param query 条件
+     * @return List<${className}Do>
+     */
+    List<${className}Do> selectByExample(${className}Query query);
+
+    /**
+     * 新增${comments}信息
+     *
+     * @param ${classname}Do 条件
+     * @return int
+     */
+    int insertBySelective(${className}Do ${classname}Do);
+
+    /**
+     * 修改${comments}信息
+     *
+     * @param ${classname}Do
+     * @return
+     */
+    int updateBySelective(${className}Do ${classname}Do);
+
+}

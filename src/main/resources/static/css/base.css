@@ -1,0 +1,192 @@
+*{margin: 0;padding: 0;box-sizing: border-box;}
+
+body{background-color: #f1f1f1;}
+
+.tr{text-align: right;}
+.tl{text-align: left;}
+.tc{text-align: center;}
+
+.error{color: red;}
+.form{
+    width: 500px;
+    margin: 200px auto 0;
+}
+.br0{border-radius: 0}
+.fz15{font-size: 15px;}
+.fw-b{font-weight: bold;}
+.td-u{text-decoration: underline;}
+.td-n{text-decoration: none;}
+.cp{cursor: pointer;}
+
+.c-blue{ color:#007bff}
+.c-indigo{ color: #6610f2;}
+.c-purple{ color: #6f42c1;}
+.c-pink{ color: #e83e8c;}
+.c-red{ color: #dc3545;}
+.c-orange{ color: #fd7e14;}
+.c-yellow{ color: #ffc107;}
+.c-green{ color: #28a745;}
+.c-teal{ color: #20c997;}
+.c-cyan{ color: #17a2b8;}
+.c-white{ color: #fff;}
+.c-gray{ color: #6c757d;}
+.c-gray-dark{ color: #343a40;}
+.c-primary{ color: #007bff;}
+.c-secondary{ color: #6c757d;}
+.c-success{ color: #28a745;}
+.c-info{ color: #17a2b8;}
+.c-warning{ color: #ffc107;}
+.c-danger{ color: #dc3545;}
+.c-light{ color: #f8f9fa;}
+.c-dark{color: #343a40;}
+
+.bg-blue{ background-color:#007bff}
+.bg-indigo{ background-color: #6610f2;}
+.bg-purple{ background-color: #6f42c1;}
+.bg-pink{ background-color: #e83e8c;}
+.bg-red{ background-color: #dc3545;}
+.bg-orange{ background-color: #fd7e14;}
+.bg-yellow{ background-color: #ffc107;}
+.bg-green{ background-color: #28a745;}
+.bg-teal{ background-color: #20c997;}
+.bg-cyan{ background-color: #17a2b8;}
+.bg-white{ background-color: #fff;}
+.bg-gray{ background-color: #6c757d;}
+.bg-gray-dark{ background-color: #343a40;}
+.bg-primary{ background-color: #007bff;}
+.bg-secondary{ background-color: #6c757d;}
+.bg-success{ background-color: #28a745;}
+.bg-info{ background-color: #17a2b8;}
+.bg-warning{ background-color: #ffc107;}
+.bg-danger{ background-color: #dc3545;}
+.bg-light{ background-color: #f8f9fa;}
+.bg-dark{background-color: #343a40;}
+
+.mt10{margin-top: 10px;}
+.mb10{margin-bottom: 10px;}
+.mb20{margin-bottom: 20px;}
+.mb30{margin-bottom: 30px;}
+.mr5{margin-right: 5px;}
+.mr10{margin-right: 10px;}
+.p20{padding: 20px;}
+.pl0{padding-left: 0;}
+.pb10{padding-bottom: 10px;}
+.pr0{padding-right: 0;}
+.bb{border-bottom: 1px solid #e0e0e0;}
+.lh25{line-height: 25px;}
+
+.nav>li>a{color:#fff;}
+.nav>li.active>a{font-weight:bold;}
+.nav>li>a:hover{color:#9d9d9d;background:none; }
+
+.control-label{line-height: 34px;text-align: right;}
+.b-shadow{background: #FFFFFF;box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);border-radius: 2px;}
+.second-nav{background-color: rgba(0,0,0,.3);}
+.layui-nav .layui-nav-item .second-nav a{padding-left: 60px;}
+
+/*CONTENTTABS*/
+
+.content-tabs {
+    position: relative;
+    height: 42px;
+    background: #fafafa;
+    line-height: 40px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.content-tabs .roll-nav,
+.page-tabs-list {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    color: #999;
+    z-index: 2;
+    top: 0;
+}
+
+.content-tabs .roll-left {
+    left: 0;
+    border-right: solid 1px #eee;
+}
+
+.content-tabs .roll-right {
+    right: 0;
+    border-left: solid 1px #eee;
+}
+
+.content-tabs button {
+    background: #fff;
+    border: 0;
+    height: 40px;
+    width: 40px;
+    outline: none;
+}
+
+.content-tabs button:hover {
+    background: #fafafa;
+}
+
+nav.page-tabs {
+    margin-left: 40px;
+    width: 1000px;
+    height: 42px;
+    overflow: hidden;
+}
+
+nav.page-tabs .page-tabs-content {
+    float: left;
+}
+
+.page-tabs a {
+    display: block;
+    float: left;
+    border-right: solid 1px #eee;
+    padding: 0 15px;
+}
+
+.page-tabs a i:hover {
+    color: #c00;
+}
+.page-tabs a.active{
+    background: #f1f1f1;
+    color: #777;
+    height: 42px;
+}
+.page-tabs a:hover,
+.content-tabs .roll-nav:hover {
+    color: #777;
+    background: #f2f2f2;
+    cursor: pointer;
+}
+
+.roll-right.J_tabRight {
+    right: 80px;
+}
+
+.roll-right.btn-group {
+    right: 0;
+    width: 80px;
+    padding: 0;
+}
+
+.roll-right.btn-group button {
+    width: 80px;
+}
+
+.roll-right.J_tabExit {
+    background: #fff;
+    height: 40px;
+    width: 60px;
+    outline: none;
+}
+
+.dropdown-menu-right {
+    left: auto;
+}
+
+#content-main {
+    height: calc(100% - 42px);
+    overflow: hidden;
+}
+

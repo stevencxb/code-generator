@@ -1,0 +1,38 @@
+package ${package}.dao.model;
+
+import lombok.Data;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Table;
+
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+/**
+ * ${comments}
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
+@Table(name = ${className})
+@Getter
+@Setter
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
+public class ${className}Do extends ${className}KeyDo{
+
+	#foreach ($column in $columns)
+
+	/**
+	 *  ${column.columnComment}
+	 */
+    @Column(name = "serial_id")
+    private $column.attrType $column.attrname;
+
+	#end
+
+}
