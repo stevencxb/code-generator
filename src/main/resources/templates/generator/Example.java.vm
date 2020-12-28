@@ -116,63 +116,63 @@ public class ${className}Example {
 
         #foreach ($column in $columns)
 
-            public Criteria and${column.attrname}IsNull() {
-                addCriterion("id is null");
+            public Criteria and${column.attrName}IsNull() {
+                addCriterion("${columnName} is null");
                 return (Criteria) this;
             }
 
-            public Criteria and${column.attrname}IsNotNull() {
-                addCriterion("id is not null");
+            public Criteria and${column.attrName}IsNotNull() {
+                addCriterion("${columnName} is not null");
                 return (Criteria) this;
             }
 
-            public Criteria and${column.attrname}EqualTo(Long value) {
-                addCriterion("id =", value, "id");
+            public Criteria and${column.attrName}EqualTo(Long value) {
+                addCriterion("${columnName} =", value, "id");
                 return (Criteria) this;
             }
 
-            public Criteria and${column.attrname}NotEqualTo(Long value) {
-                addCriterion("id <>", value, "id");
+            public Criteria and${column.attrName}NotEqualTo(Long value) {
+                addCriterion("${columnName} <>", value, "id");
                 return (Criteria) this;
             }
 
-            public Criteria and${column.attrname}GreaterThan(Long value) {
-                addCriterion("id >", value, "id");
+            public Criteria and${column.attrName}GreaterThan(Long value) {
+                addCriterion("${columnName} >", value, "id");
                 return (Criteria) this;
             }
 
-            public Criteria and${column.attrname}GreaterThanOrEqualTo(Long value) {
-                addCriterion("id >=", value, "id");
+            public Criteria and${column.attrName}GreaterThanOrEqualTo(Long value) {
+                addCriterion("${columnName} >=", value, "id");
                 return (Criteria) this;
             }
 
-            public Criteria and${column.attrname}LessThan(Long value) {
-                addCriterion("id <", value, "id");
+            public Criteria and${column.attrName}LessThan(Long value) {
+                addCriterion("${columnName} <", value, "id");
                 return (Criteria) this;
             }
 
-            public Criteria and${column.attrname}LessThanOrEqualTo(Long value) {
-                addCriterion("id <=", value, "id");
+            public Criteria and${column.attrName}LessThanOrEqualTo(Long value) {
+                addCriterion("${columnName} <=", value, "id");
                 return (Criteria) this;
             }
 
-            public Criteria and${column.attrname}In(List<Long> values) {
-                addCriterion("id in", values, "id");
+            public Criteria and${column.attrName}In(List<Long> values) {
+                addCriterion("${columnName} in", values, "id");
                 return (Criteria) this;
             }
 
-            public Criteria and${column.attrname}NotIn(List<Long> values) {
-                addCriterion("id not in", values, "id");
+            public Criteria and${column.attrName}NotIn(List<Long> values) {
+                addCriterion("${columnName} not in", values, "id");
                 return (Criteria) this;
             }
 
-            public Criteria and${column.attrname}Between(Long value1, Long value2) {
-                addCriterion("id between", value1, value2, "id");
+            public Criteria and${column.attrName}Between(Long value1, Long value2) {
+                addCriterion("${columnName} between", value1, value2, "id");
                 return (Criteria) this;
             }
 
-            public Criteria and${column.attrname}NotBetween(Long value1, Long value2) {
-                addCriterion("id not between", value1, value2, "id");
+            public Criteria and${column.attrName}NotBetween(Long value1, Long value2) {
+                addCriterion("${columnName} not between", value1, value2, "id");
                 return (Criteria) this;
             }
         #end

@@ -13,7 +13,7 @@ import java.util.List;
 public class TableVO {
 
     /**
-     * 表明
+     * 数据库表名
      */
     private String tableName;
 
@@ -38,7 +38,7 @@ public class TableVO {
     private ColumnVO pk;
 
     /**
-     * 表的列名(不包含主键)
+     * 表的列(不包含主键)
      */
     private List<ColumnVO> columns;
 
@@ -51,20 +51,6 @@ public class TableVO {
      * 类名(第一个字母小写)，如：sys_user => sysUser
      */
     private String classname;
-
-    @Override
-    public String toString() {
-        return "TableVO{" +
-                "tableName='" + tableName + '\'' +
-                ", engine='" + engine + '\'' +
-                ", tableComment='" + tableComment + '\'' +
-                ", createTime=" + createTime +
-                ", pk=" + pk +
-                ", columns=" + columns +
-                ", className='" + className + '\'' +
-                ", classname='" + classname + '\'' +
-                '}';
-    }
 
     public String getTableName() {
         return tableName;

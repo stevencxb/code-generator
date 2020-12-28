@@ -1,9 +1,8 @@
 package ${package}.dao.intf;
 
-
-
 import java.util.List;
-
+import org.springframework.stereotype.Repository;
+import com.hsjry.lang.common.utils.StringUtil;
 import com.hsjry.lang.mybatis.dao.IBaseDao;
 import com.hsjry.lang.mybatis.pagehelper.PageInfo;
 import com.hsjry.lang.mybatis.pagehelper.PageParam;
@@ -128,44 +127,12 @@ public class ${className}Dao extends AbstractBaseDaoImpl<${className}Do,${classN
         ${classname}Example example = new ${classname}Example();
         ${classname}Example.Criteria criteria = example.createCriteria();
         if (query != null) {
-            //添加查询条件
-            if (null != query.getId()) {
-                criteria.andIdEqualTo(query.getId());
-            }
-            if (StringUtil.isNotEmpty(query.getChannelNo())) {
-                criteria.andChannelNoEqualTo(query.getChannelNo());
-            }
-            if (StringUtil.isNotEmpty(query.getSerialId())) {
-                criteria.andSerialIdEqualTo(query.getSerialId());
-            }
-            if (StringUtil.isNotEmpty(query.getMerchantId())) {
-                criteria.andMerchantIdEqualTo(query.getMerchantId());
-            }
-            if (StringUtil.isNotEmpty(query.getProductId())) {
-                criteria.andProductIdEqualTo(query.getProductId());
-            }
-            if (StringUtil.isNotEmpty(query.getLoanInvoiceId())) {
-                criteria.andLoanInvoiceIdEqualTo(query.getLoanInvoiceId());
-            }
-            if (StringUtil.isNotEmpty(query.getThirdLoanNo())) {
-                criteria.andThirdLoanNoEqualTo(query.getThirdLoanNo());
-            }
-            if (StringUtil.isNotEmpty(query.getThirdApplyId())) {
-                criteria.andThirdApplyIdEqualTo(query.getThirdApplyId());
-            }
-            if (StringUtil.isNotEmpty(query.getPayStatus())) {
-                criteria.andPayStatusEqualTo(query.getPayStatus());
-            }
-            if (StringUtil.isNotEmpty(query.getLoanPayModel())) {
-                criteria.andLoanPayModelEqualTo(query.getLoanPayModel());
-            }
-            if (StringUtil.isNotEmpty(query.getDealStatus())) {
-                criteria.andDealStatusEqualTo(query.getDealStatus());
-            }
-            if (null != query.getStatus()) {
-                criteria.andStatusEqualTo(query.getStatus());
-            }
-
+        //添加查询条件
+        #foreach ($column in $columns)
+        if (StringUtil.isNotEmpty(query.get${column.attrName}())) {
+            criteria.and${column.attrName}EqualTo(query.get${column.attrName}());
+        }
+        #end
         }
         return example;
     }

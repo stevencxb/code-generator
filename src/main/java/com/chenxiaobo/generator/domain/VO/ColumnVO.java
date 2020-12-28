@@ -1,7 +1,5 @@
 package com.chenxiaobo.generator.domain.VO;
 
-import lombok.Data;
-
 /**
  * @Title: ColumnVO
  * @Description: TODO
@@ -17,7 +15,7 @@ public class ColumnVO {
     private String columnName;
 
     /**
-     * 字段类型
+     * 数据库字段类型
      */
     private String dataType;
 
@@ -27,10 +25,13 @@ public class ColumnVO {
     private String columnComment;
 
     /**
-     *
+     * 索引
      */
     private String columnKey;
 
+    /**
+     * 额外信息
+     */
     private String extra;
 
     /**
@@ -44,11 +45,9 @@ public class ColumnVO {
     private String attrname;
 
     /**
-     * 属性类型
+     * java属性类型
      */
     private String attrType;
-
-
 
     public String getColumnName() {
         return columnName;
