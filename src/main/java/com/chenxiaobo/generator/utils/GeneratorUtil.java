@@ -30,8 +30,12 @@ public class GeneratorUtil {
     public static List<String> getTemplates() {
         List<String> templates = new ArrayList<>();
         templates.add("templates/generator/Do.java.vm");
+        templates.add("templates/generator/KeyDo.java.vm");
         templates.add("templates/generator/Dao.java.vm");
+        templates.add("templates/generator/DaoImpl.java.vm");
+        templates.add("templates/generator/Example.java.vm");
         templates.add("templates/generator/Mapper.xml.vm");
+        templates.add("templates/generator/Mapper.java.vm");
         return templates;
     }
 
@@ -111,9 +115,7 @@ public class GeneratorUtil {
             try {
                 //添加到zip
                 zip.putNextEntry(new ZipEntry(getFileName(template, table.getClassname(), table.getClassName(),
-                    config.getString("package")
-                        .substring(config.getString("package")
-                            .lastIndexOf(".") + 1))));
+                    config.getString("package"))));
                 IOUtils.write(sw.toString(), zip, "UTF-8");
                 IOUtils.closeQuietly(sw);
                 zip.closeEntry();
@@ -159,22 +161,38 @@ public class GeneratorUtil {
             packagePath += packageName.replace(".", File.separator) + File.separator;
         }
 
-        if (template.contains("Do.java.vm")) {
+
+        if (template.contains("/Do.java.vm")) {
             return packagePath + "dal" + File.separator + "dao" + File.separator + "model" + File.separator + className
                 + "Do.java";
         }
+        if (template.contains("/Example.java.vm")) {
+            return packagePath + "dal" + File.separator + "dao" + File.separator + "model" + File.separator + className
+                + "Example.java";
+        }
 
-        if (template.contains("Dao.java.vm")) {
+        if (template.contains("/KeyDo.java.vm")) {
+            return packagePath + "dal" + File.separator + "dao" + File.separator + "model" + File.separator + className
+                + "KeyDo.java";
+        }
+
+
+        if (template.contains("/Dao.java.vm")) {
             return packagePath + "dal" + File.separator + "dao" + File.separator + "intf" + File.separator + className
                 + "Dao.java";
         }
 
-        if (template.contains("Mapper.java.vm")) {
+        if (template.contains("/DaoImpl.java.vm")) {
+            return packagePath + "dal" + File.separator + "dao" + File.separator + "intf" + File.separator + className
+                + "DaoImpl.java";
+        }
+
+        if (template.contains("/Mapper.java.vm")) {
             return packagePath + "dal" + File.separator + "dao" + File.separator + "mapper" + File.separator + className
                 + "Mapper.java";
         }
 
-        if (template.contains("Mapper.xml.vm")) {
+        if (template.contains("/Mapper.xml.vm")) {
             return packagePath + "dal" + File.separator + "dao" + File.separator + "sqlmap"+ File.separator + packageName
                 + File.separator + className + "Mapper.xml";
         }

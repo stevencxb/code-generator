@@ -1,0 +1,20 @@
+package ${package}.dao.intf;
+
+import java.util.List;
+
+import com.hsjry.lang.mybatis.mapper.common.CommonMapper;
+import ${package}.dao.model.${className}Do;
+import ${package}.dao.query.${className}Query;
+
+
+/**
+ * ${comments}
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
+public interface ${className}Mapper extends CommonMapper<${className}Do> {
+
+
+
+}

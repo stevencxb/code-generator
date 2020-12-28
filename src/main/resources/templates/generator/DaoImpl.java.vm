@@ -1,0 +1,172 @@
+package ${package}.dao.intf;
+
+
+
+import java.util.List;
+
+import com.hsjry.lang.mybatis.dao.IBaseDao;
+import com.hsjry.lang.mybatis.pagehelper.PageInfo;
+import com.hsjry.lang.mybatis.pagehelper.PageParam;
+import ${package}.dao.model.${className}Do;
+import ${package}.dao.query.${className}Query;
+
+/**
+ * ${comments}
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
+@Repository
+public class ${className}Dao extends AbstractBaseDaoImpl<${className}Do,${className}Mapper>  implements ${className}Dao {
+
+    /**
+     * 分页查询${comments}
+     *
+     * @param query 条件
+     * @return PageInfo<${className}Do>
+     */
+    @Override
+    public PageInfo<${className}Do> selectPage(${className}Query query, PageParam pageParam){
+        ${className}Example example = buildExample(query);
+        return PageHelper.<${className}Do>startPage(pageParam.getPageNum(),
+            pageParam.getPageSize()).doSelectPageInfo(() -> getMapper().selectByExample(example));
+    }
+
+    /**
+     * 根据条件查询${comments}总数
+     *
+     * @param query 条件
+     * @return int
+     */
+    @Override
+    public int countByExample(${className}Query query){
+        return getMapper().selectCountByExample(buildExample(query));
+    }
+
+    /**
+     * 根据key查询${comments}
+     *
+     * @param key
+     * @return
+     */
+    @Override
+    public ${className}Do selectByKey(${className}KeyDo key){
+        return getMapper().selectByPrimaryKey(key);
+    }
+
+    /**
+     * 根据key删除${comments}
+     *
+     * @param key
+     * @return
+     */
+    @Override
+    public int deleteByKey(${className}KeyDo key){
+        return getMapper().deleteByPrimaryKey(key);
+    }
+
+    /**
+     * 删除${comments}信息
+     *
+     * @param query 条件
+     * @return int
+     */
+    @Override
+    public int deleteByExample(${className}Query query){
+        return getMapper().deleteByExample(buildExample(query));
+    }
+
+    /**
+     * 查询${comments}信息
+     *
+     * @param query 条件
+     * @return List<${className}Do>
+     */
+    @Override
+    public List<${className}Do> selectByExample(${className}Query query){
+        return getMapper().selectByExample(buildExample(query));
+    }
+
+    /**
+     * 新增${comments}信息
+     *
+     * @param ${classname}Do 条件
+     * @return int
+     */
+    @Override
+    public int insertBySelective(${className}Do ${classname}Do){
+        if (${classname}Do == null) {
+            return -1;
+        }
+        ${classname}Do.setCreateTime(new Date());
+        ${classname}Do.setUpdateTime(new Date());
+        return getMapper().insertSelective(${classname}Do);
+    }
+
+    /**
+     * 修改${comments}信息
+     *
+     * @param ${classname}Do
+     * @return
+     */
+    @Override
+    public int updateBySelective(${className}Do ${classname}Do){
+        if (${classname}Do == null) {
+            return -1;
+        }
+            ${classname}Do.setUpdateTime(new Date());
+        return getMapper().updateByPrimaryKeySelective(${classname}Do);
+    }
+
+    /**
+    * 构建${comments}Example信息
+    *
+    * @param query
+    * @return
+    */
+    public ${classname}Example buildExample(${classname}Query query) {
+        ${classname}Example example = new ${classname}Example();
+        ${classname}Example.Criteria criteria = example.createCriteria();
+        if (query != null) {
+            //添加查询条件
+            if (null != query.getId()) {
+                criteria.andIdEqualTo(query.getId());
+            }
+            if (StringUtil.isNotEmpty(query.getChannelNo())) {
+                criteria.andChannelNoEqualTo(query.getChannelNo());
+            }
+            if (StringUtil.isNotEmpty(query.getSerialId())) {
+                criteria.andSerialIdEqualTo(query.getSerialId());
+            }
+            if (StringUtil.isNotEmpty(query.getMerchantId())) {
+                criteria.andMerchantIdEqualTo(query.getMerchantId());
+            }
+            if (StringUtil.isNotEmpty(query.getProductId())) {
+                criteria.andProductIdEqualTo(query.getProductId());
+            }
+            if (StringUtil.isNotEmpty(query.getLoanInvoiceId())) {
+                criteria.andLoanInvoiceIdEqualTo(query.getLoanInvoiceId());
+            }
+            if (StringUtil.isNotEmpty(query.getThirdLoanNo())) {
+                criteria.andThirdLoanNoEqualTo(query.getThirdLoanNo());
+            }
+            if (StringUtil.isNotEmpty(query.getThirdApplyId())) {
+                criteria.andThirdApplyIdEqualTo(query.getThirdApplyId());
+            }
+            if (StringUtil.isNotEmpty(query.getPayStatus())) {
+                criteria.andPayStatusEqualTo(query.getPayStatus());
+            }
+            if (StringUtil.isNotEmpty(query.getLoanPayModel())) {
+                criteria.andLoanPayModelEqualTo(query.getLoanPayModel());
+            }
+            if (StringUtil.isNotEmpty(query.getDealStatus())) {
+                criteria.andDealStatusEqualTo(query.getDealStatus());
+            }
+            if (null != query.getStatus()) {
+                criteria.andStatusEqualTo(query.getStatus());
+            }
+
+        }
+        return example;
+    }
+}
