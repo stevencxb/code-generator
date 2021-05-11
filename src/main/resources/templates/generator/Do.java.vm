@@ -27,11 +27,14 @@ public class ${className}Do extends ${className}KeyDo{
 
 	#foreach ($column in $columns)
 
-	/**
-	 *  ${column.columnComment}
-	 */
-    @Column(name = "serial_id")
-    private $column.attrType $column.attrname;
+        #if(${pk.columnName} != ${column.columnName})
+            /**
+             *  ${column.columnComment}
+             */
+            @Column(name = "${column.columnName}")
+            private $column.attrType $column.attrname;
+        #end
+
 
 	#end
 

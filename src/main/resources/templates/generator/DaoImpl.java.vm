@@ -16,7 +16,7 @@ import ${package}.dao.query.${className}Query;
  * @date ${datetime}
  */
 @Repository
-public class ${className}Dao extends AbstractBaseDaoImpl<${className}Do,${className}Mapper>  implements ${className}Dao {
+public class ${className}DaoImpl extends AbstractBaseDaoImpl<${className}Do,${className}Mapper>  implements ${className}Dao {
 
     /**
      * 分页查询${comments}
