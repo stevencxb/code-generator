@@ -129,7 +129,13 @@ public class ${className}Dao extends AbstractBaseDaoImpl<${className}Do,${classN
         if (query != null) {
         //添加查询条件
         #foreach ($column in $columns)
-        if (StringUtil.isNotEmpty(query.get${column.attrName}())) {
+            #if(${column.attrType} == "String")
+            if (StringUtil.isNotEmpty(query.get${column.attrName}())) {
+            #end
+            #if(${column.attrType} != "String")
+            if (query.get${column.attrName}() != null) {
+            #end
+
             criteria.and${column.attrName}EqualTo(query.get${column.attrName}());
         }
         #end
