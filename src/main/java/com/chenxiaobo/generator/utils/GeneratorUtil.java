@@ -163,7 +163,7 @@ public class GeneratorUtil {
         }
 
         if (template.contains("/Query.java.vm")) {
-            return packagePath + "dal" + File.separator + "dao" + File.separator + "model" + File.separator + className
+            return packagePath + "dal" + File.separator + "dao" + File.separator + "query" + File.separator + className
                 + "Query.java";
         }
         if (template.contains("/Do.java.vm")) {
@@ -180,14 +180,13 @@ public class GeneratorUtil {
                 + "KeyDo.java";
         }
 
-
         if (template.contains("/Dao.java.vm")) {
             return packagePath + "dal" + File.separator + "dao" + File.separator + "intf" + File.separator + className
                 + "Dao.java";
         }
 
         if (template.contains("/DaoImpl.java.vm")) {
-            return packagePath + "dal" + File.separator + "dao" + File.separator + "intf" + File.separator + className
+            return packagePath + "dal" + File.separator + "dao" + File.separator + "impl" + File.separator + className
                 + "DaoImpl.java";
         }
 
