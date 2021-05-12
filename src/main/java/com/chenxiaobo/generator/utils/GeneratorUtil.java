@@ -36,6 +36,7 @@ public class GeneratorUtil {
         templates.add("templates/generator/Example.java.vm");
         templates.add("templates/generator/Mapper.xml.vm");
         templates.add("templates/generator/Mapper.java.vm");
+        templates.add("templates/generator/Query.java.vm");
         return templates;
     }
 
@@ -161,7 +162,10 @@ public class GeneratorUtil {
             packagePath += packageName.replace(".", File.separator) + File.separator;
         }
 
-
+        if (template.contains("/Query.java.vm")) {
+            return packagePath + "dal" + File.separator + "dao" + File.separator + "model" + File.separator + className
+                + "Query.java";
+        }
         if (template.contains("/Do.java.vm")) {
             return packagePath + "dal" + File.separator + "dao" + File.separator + "model" + File.separator + className
                 + "Do.java";

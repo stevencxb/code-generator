@@ -1,0 +1,28 @@
+package ${package}.dao.query;
+
+import java.util.Date;
+
+import lombok.Builder;
+import lombok.Data;
+
+/**
+ * ${comments}
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
+@Data
+@Builder
+public class ${className}Query {
+
+	#foreach ($column in $columns)
+
+            /**
+             *  ${column.columnComment}
+             */
+            private $column.attrType $column.attrname;
+
+
+	#end
+
+}

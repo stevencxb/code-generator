@@ -1,6 +1,5 @@
 package ${package}.dao.model;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -126,52 +125,52 @@ public class ${className}Example {
                 return (Criteria) this;
             }
 
-            public Criteria and${column.attrName}EqualTo(Long value) {
+            public Criteria and${column.attrName}EqualTo(${column.attrType} value) {
                 addCriterion("${column.columnName} =", value, "id");
                 return (Criteria) this;
             }
 
-            public Criteria and${column.attrName}NotEqualTo(Long value) {
+            public Criteria and${column.attrName}NotEqualTo(${column.attrType} value) {
                 addCriterion("${column.columnName} <>", value, "id");
                 return (Criteria) this;
             }
 
-            public Criteria and${column.attrName}GreaterThan(Long value) {
+            public Criteria and${column.attrName}GreaterThan(${column.attrType} value) {
                 addCriterion("${column.columnName} >", value, "id");
                 return (Criteria) this;
             }
 
-            public Criteria and${column.attrName}GreaterThanOrEqualTo(Long value) {
+            public Criteria and${column.attrName}GreaterThanOrEqualTo(${column.attrType} value) {
                 addCriterion("${column.columnName} >=", value, "id");
                 return (Criteria) this;
             }
 
-            public Criteria and${column.attrName}LessThan(Long value) {
+            public Criteria and${column.attrName}LessThan(${column.attrType} value) {
                 addCriterion("${column.columnName} <", value, "id");
                 return (Criteria) this;
             }
 
-            public Criteria and${column.attrName}LessThanOrEqualTo(Long value) {
+            public Criteria and${column.attrName}LessThanOrEqualTo(${column.attrType} value) {
                 addCriterion("${column.columnName} <=", value, "id");
                 return (Criteria) this;
             }
 
-            public Criteria and${column.attrName}In(List<Long> values) {
+            public Criteria and${column.attrName}In(List<${column.attrType}> values) {
                 addCriterion("${column.columnName} in", values, "id");
                 return (Criteria) this;
             }
 
-            public Criteria and${column.attrName}NotIn(List<Long> values) {
+            public Criteria and${column.attrName}NotIn(List<${column.attrType}> values) {
                 addCriterion("${column.columnName} not in", values, "id");
                 return (Criteria) this;
             }
 
-            public Criteria and${column.attrName}Between(Long value1, Long value2) {
+            public Criteria and${column.attrName}Between(${column.attrType} value1, ${column.attrType} value2) {
                 addCriterion("${column.columnName} between", value1, value2, "id");
                 return (Criteria) this;
             }
 
-            public Criteria and${column.attrName}NotBetween(Long value1, Long value2) {
+            public Criteria and${column.attrName}NotBetween(${column.attrType} value1, ${column.attrType} value2) {
                 addCriterion("${column.columnName} not between", value1, value2, "id");
                 return (Criteria) this;
             }

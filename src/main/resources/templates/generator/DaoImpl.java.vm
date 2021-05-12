@@ -1,13 +1,26 @@
 package ${package}.dao.intf;
 
-import java.util.List;
-import org.springframework.stereotype.Repository;
-import com.hsjry.lang.common.utils.StringUtil;
-import com.hsjry.lang.mybatis.dao.IBaseDao;
-import com.hsjry.lang.mybatis.pagehelper.PageInfo;
-import com.hsjry.lang.mybatis.pagehelper.PageParam;
 import ${package}.dao.model.${className}Do;
 import ${package}.dao.query.${className}Query;
+
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import com.hsjry.lang.common.utils.StringUtil;
+import com.hsjry.lang.mybatis.dao.AbstractBaseDaoImpl;
+import com.hsjry.lang.mybatis.pagehelper.PageHelper;
+import com.hsjry.lang.mybatis.pagehelper.PageInfo;
+import com.hsjry.lang.mybatis.pagehelper.PageParam;
+
+import ${package}.dao.model.${className}Dao;
+import ${package}.dao.model.${className}Mapper;
+import ${package}.dao.model.${className}Do;
+import ${package}.dao.model.${className}KeyDo;
+import ${package}.dao.model.${className}Example;
+import ${package}.dao.query.${className}Query;
+
 
 /**
  * ${comments}
@@ -123,9 +136,9 @@ public class ${className}DaoImpl extends AbstractBaseDaoImpl<${className}Do,${cl
     * @param query
     * @return
     */
-    public ${classname}Example buildExample(${classname}Query query) {
-        ${classname}Example example = new ${classname}Example();
-        ${classname}Example.Criteria criteria = example.createCriteria();
+    public ${className}Example buildExample(${className}Query query) {
+        ${className}Example example = new ${className}Example();
+        ${className}Example.Criteria criteria = example.createCriteria();
         if (query != null) {
         //添加查询条件
         #foreach ($column in $columns)

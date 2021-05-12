@@ -1,12 +1,8 @@
 package ${package}.domain.DO;
 
+import javax.persistence.Column;
+
 import lombok.Data;
-
-import java.util.Date;
-
-#if(${hasBigDecimal})
-import java.math.BigDecimal;
-#end
 
 
 /**

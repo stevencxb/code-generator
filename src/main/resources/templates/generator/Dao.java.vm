@@ -1,13 +1,12 @@
 package ${package}.dao.intf;
 
-
-
 import java.util.List;
 
 import com.hsjry.lang.mybatis.dao.IBaseDao;
 import com.hsjry.lang.mybatis.pagehelper.PageInfo;
 import com.hsjry.lang.mybatis.pagehelper.PageParam;
 import ${package}.dao.model.${className}Do;
+import ${package}.dao.model.${className}KeyDo;
 import ${package}.dao.query.${className}Query;
 
 /**
