@@ -7,7 +7,6 @@
         #foreach($column in $columns)$column.columnName#if($velocityCount != $columns.size()),#end#end
     </sql>
 
-
     <sql id="fixQuerySql">
         #foreach($column in $columns)
         <if test="query.${column.attrname} != null ">

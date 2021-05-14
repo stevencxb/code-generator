@@ -16,13 +16,10 @@ import lombok.Data;
 public class ${className}Query {
 
 	#foreach ($column in $columns)
-
             /**
              *  ${column.columnComment}
              */
             private $column.attrType $column.attrname;
-
-
 	#end
 
 }

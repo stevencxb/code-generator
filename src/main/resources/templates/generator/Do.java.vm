@@ -26,7 +26,6 @@ import lombok.ToString;
 public class ${className}Do extends ${className}KeyDo{
 
 	#foreach ($column in $columns)
-
         #if(${pk.columnName} != ${column.columnName})
             /**
              *  ${column.columnComment}
@@ -34,8 +33,6 @@ public class ${className}Do extends ${className}KeyDo{
             @Column(name = "${column.columnName}")
             private $column.attrType $column.attrname;
         #end
-
-
 	#end
 
 }

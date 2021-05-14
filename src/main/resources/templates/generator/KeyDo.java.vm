@@ -19,7 +19,6 @@ import lombok.Data;
 public class ${className}KeyDo {
 
     #foreach ($column in $columns)
-
         #if(${pk.columnName} == ${column.columnName})
             /**
              *  ${column.columnComment}
@@ -27,8 +26,6 @@ public class ${className}KeyDo {
             @Column(name = "${column.columnName}")
             private $column.attrType $column.attrname;
         #end
-
-
     #end
 
 }
