@@ -18,7 +18,7 @@ import lombok.ToString;
  * @email ${email}
  * @date ${datetime}
  */
-@Table(name = ${className})
+@Table(name = "${tableName}")
 @Getter
 @Setter
 @EqualsAndHashCode(callSuper = true)
