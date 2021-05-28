@@ -1,8 +1,12 @@
-package ${package}.domain.DO;
+package ${package}.domain.Do;
 
 import javax.persistence.Column;
+import javax.persistence.Table;
 
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 
 /**
