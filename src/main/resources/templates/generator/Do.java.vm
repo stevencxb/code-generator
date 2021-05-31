@@ -23,16 +23,13 @@ import lombok.ToString;
 @Setter
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class ${className}Do extends ${className}KeyDo{
-
-	#foreach ($column in $columns)
-        #if(${pk.columnName} != ${column.columnName})
-            /**
-             *  ${column.columnComment}
-             */
-            @Column(name = "${column.columnName}")
-            private $column.attrType $column.attrname;
-        #end
-	#end
+public class ${className}Do extends ${className}KeyDo {
+    #foreach ($column in $noPkColumns)
+        /**
+         *  ${column.columnComment}
+         */
+        @Column(name = "${column.columnName}")
+        private $column.attrType $column.attrname;
+    #end
 
 }

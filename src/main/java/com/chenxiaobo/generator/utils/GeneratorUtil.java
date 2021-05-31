@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -21,6 +22,7 @@ import org.apache.commons.lang.WordUtils;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
+import org.springframework.util.CollectionUtils;
 
 import com.chenxiaobo.generator.domain.VO.ColumnVO;
 import com.chenxiaobo.generator.domain.VO.TableVO;
@@ -56,7 +58,9 @@ public class GeneratorUtil {
         table.setClassname(StringUtils.uncapitalize(className));
 
         //列信息
-        List<ColumnVO> columsList = new ArrayList<>();
+        table.setColumns(new ArrayList<>());
+        table.setNoPkColumns(new ArrayList<>());
+        table.setPks(new ArrayList<>());
         for (ColumnVO column : columns) {
 
             //列名转换成Java属性名
@@ -69,17 +73,21 @@ public class GeneratorUtil {
             column.setAttrType(attrType);
 
             //是否主键
-            if ("PRI".equalsIgnoreCase(column.getColumnKey()) && table.getPk() == null) {
-                table.setPk(column);
+            if ("PRI".equalsIgnoreCase(column.getColumnKey())) {
+                table.getPks()
+                    .add(column);
+            } else {
+                table.getNoPkColumns()
+                    .add(column);
             }
 
-            columsList.add(column);
+            table.getColumns().add(column);
         }
-        table.setColumns(columsList);
+
 
         //没主键，则第一个字段为主键
-        if (table.getPk() == null) {
-            table.setPk(table.getColumns()
+        if (CollectionUtils.isEmpty(table.getPks())){
+            table.getPks().add(table.getColumns()
                 .get(0));
         }
 
@@ -92,7 +100,8 @@ public class GeneratorUtil {
         Map<String, Object> map = new HashMap<>(16);
         map.put("tableName", table.getTableName());
         map.put("comments", table.getTableComment());
-        map.put("pk", table.getPk());
+        map.put("pks", table.getPks());
+        map.put("noPkColumns", table.getNoPkColumns());
         map.put("className", table.getClassName());
         map.put("classname", table.getClassname());
         map.put("pathName", config.getString("package")

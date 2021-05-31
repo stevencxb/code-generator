@@ -1,13 +1,13 @@
 package ${package}.domain.Do;
 
 import javax.persistence.Column;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-
 
 /**
  * ${comments}
@@ -21,15 +21,13 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString(callSuper = true)
 public class ${className}KeyDo {
-
-    #foreach ($column in $columns)
-        #if(${pk.columnName} == ${column.columnName})
-            /**
-             *  ${column.columnComment}
-             */
-            @Column(name = "${column.columnName}")
-            private $column.attrType $column.attrname;
-        #end
+    #foreach ($pk in $pks)
+        /**
+         *  ${pk.columnComment}
+         */
+        @Id
+        @Column(name = "${pk.columnName}")
+        private $pk.attrType $pk.attrname;
     #end
 
 }

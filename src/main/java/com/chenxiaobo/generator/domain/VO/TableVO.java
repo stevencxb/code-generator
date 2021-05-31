@@ -3,6 +3,8 @@ package com.chenxiaobo.generator.domain.VO;
 import java.util.Date;
 import java.util.List;
 
+import lombok.Data;
+
 /**
  * @Title: TableVO
  * @Description: 数据库表
@@ -10,6 +12,7 @@ import java.util.List;
  * @Date 2019-06-05 17:16
  * @Version V1.0
  */
+@Data
 public class TableVO {
 
     /**
@@ -31,14 +34,24 @@ public class TableVO {
      * 创建时间
      */
     private Date createTime;
+    //
+    // /**
+    //  * 表的主键
+    //  */
+    // private ColumnVO pk;
 
     /**
      * 表的主键
      */
-    private ColumnVO pk;
+    private List<ColumnVO> pks;
 
     /**
-     * 表的列(不包含主键)
+     * 表的列(不含主键)
+     */
+    private List<ColumnVO> noPkColumns;
+
+    /**
+     * 表的列(含主键)
      */
     private List<ColumnVO> columns;
 
@@ -84,12 +97,20 @@ public class TableVO {
         this.createTime = createTime;
     }
 
-    public ColumnVO getPk() {
-        return pk;
+    public List<ColumnVO> getPks() {
+        return pks;
     }
 
-    public void setPk(ColumnVO pk) {
-        this.pk = pk;
+    public void setPks(List<ColumnVO> pks) {
+        this.pks = pks;
+    }
+
+    public List<ColumnVO> getNoPkColumns() {
+        return noPkColumns;
+    }
+
+    public void setNoPkColumns(List<ColumnVO> noPkColumns) {
+        this.noPkColumns = noPkColumns;
     }
 
     public List<ColumnVO> getColumns() {
